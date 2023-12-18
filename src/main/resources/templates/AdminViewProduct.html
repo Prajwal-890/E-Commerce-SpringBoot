@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>Product List</h1>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Picture</th>
+			<th>Category</th>
+			<th>Stock</th>
+			<th>Price</th>
+			<th>Action</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr th:each="product:${products}"> <!--for each loop-->
+			<td th:text="${product.name}"></td>
+			<td><img th:src="@{'data:image/jpeg;base64,'+${product.generateBase64Image()}}"  height="100" width="150"></td>
+			<td th:text="${product.category}"></td>
+			<td th:text="${product.stock}">Stock</td>
+			<td th:text="${product.price}">Price</td>
+			<td th:if="${product.display==false}"><button>Show</button></td>
+			<td th:if="${product.display==true}"><button>Hide</button></td>
+			<td><button>Edit</button></td>
+			<td><button>Delete</button></td>
+		</tr>
+
+	</table>
+	<br>
+	<a href="/admin/home"><button>Back</button></a>
+</body>
+
+</html>

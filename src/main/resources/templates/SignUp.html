@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1 th:text="${fail}"></h1>
+	<h1>Customer Signup</h1>         <!--Receiving the value pair from CustomerContoller.java-->
+	<form action="/customer/signup" th:object="${customerdto}" method="post">
+		<fieldset>
+			<legend>SignUp Form</legend>
+			Name: <input type="text" name="name" th:field="*{name}">
+			<h3 th:errors="*{name}"></h3> <br><br>
+			
+			Mobile: <input type="number" name="mobile" th:field="*{mobile}">
+			<h3 th:errors="*{mobile}"></h3><br><br>
+			
+			Email: <input type="email" name="email" th:field="*{email}">
+			<h3 th:errors="*{email}"></h3><br><br>
+			
+			Password: <input type="password" name="password" th:field="*{password}">
+			<h3 th:errors="*{password}"></h3><br><br>
+			
+			DOB: <input type="date" name="date" th:field="*{date}">
+			<h3 th:errors="*{date}"></h3><br><br>
+
+			<a href="signup"><button>SignUp</button></a>
+			<button type="reset">Cancel</button>
+		</fieldset>
+	</form>
+	<a href="/"><button>Back</button></a>
+</body>
+
+</html>
