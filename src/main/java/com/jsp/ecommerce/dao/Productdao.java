@@ -22,6 +22,17 @@ public class Productdao {
 	public List<Productdto> fetchAll() {
 		return productRepository.findAll();
 		
+	}
+
+	public Productdto findById(int id) {
+		return productRepository.findById(id).orElse(null);
+	}
+
+	
+
+	public void delete(Productdto productdto) {
+		productRepository.delete(productdto);
+		
 	}	
 	
 	

@@ -4,33 +4,123 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Insert title here</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f5f5f5;
+			margin: 20px;
+			color: #333;
+		}
+
+		h1 {
+			color: #333;
+		}
+
+		.form-container {
+			max-width: 400px;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		form {
+			margin-top: 10px;
+		}
+
+		fieldset {
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			padding: 10px;
+		}
+
+		legend {
+			font-size: 18px;
+			color: #4caf50;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 8px;
+		}
+
+		input {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		h3 {
+			color: #ff0000;
+			/* Red color for error message */
+			margin-top: 5px;
+			margin-bottom: 15px;
+		}
+
+		button {
+			background-color: #4caf50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			margin-right: 5px;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		a button {
+			border: 1px solid #4caf50;
+			background-color: #fff;
+			color: #4caf50;
+		}
+
+		a button:hover {
+			background-color: #4caf50;
+			color: #fff;
+		}
+	</style>
+
 </head>
 
 <body>
 	<h1 th:text="${fail}"></h1>
-	<h1>Customer Signup</h1>         <!--Receiving the value pair from CustomerContoller.java-->
-	<form action="/customer/signup" th:object="${customerdto}" method="post">
-		<fieldset>
-			<legend>SignUp Form</legend>
-			Name: <input type="text" name="name" th:field="*{name}">
-			<h3 th:errors="*{name}"></h3> <br><br>
-			
-			Mobile: <input type="number" name="mobile" th:field="*{mobile}">
-			<h3 th:errors="*{mobile}"></h3><br><br>
-			
-			Email: <input type="email" name="email" th:field="*{email}">
-			<h3 th:errors="*{email}"></h3><br><br>
-			
-			Password: <input type="password" name="password" th:field="*{password}">
-			<h3 th:errors="*{password}"></h3><br><br>
-			
-			DOB: <input type="date" name="date" th:field="*{date}">
-			<h3 th:errors="*{date}"></h3><br><br>
+	<h1>Customer Signup</h1> <!--Receiving the value pair from CustomerContoller.java-->
+	<div class="form-container">
+		<form action="/customer/signup" th:object="${customerdto}" method="post">
+			<fieldset>
+				<legend>SignUp Form</legend>
+				<label for="name">Name:</label>
+				<input type="text" name="name" th:field="*{name}">
+				<h3 th:errors="*{name}"></h3> <br><br>
 
-			<a href="signup"><button>SignUp</button></a>
-			<button type="reset">Cancel</button>
-		</fieldset>
-	</form>
+				<label for="mobile">Mobile:</label>
+				<input type="number" name="mobile" th:field="*{mobile}">
+				<h3 th:errors="*{mobile}"></h3><br><br>
+
+				<label for="email">Email:</label>
+				<input type="email" name="email" th:field="*{email}">
+				<h3 th:errors="*{email}"></h3><br><br>
+
+				<label for="password">Password:</label>
+				<input type="password" name="password" th:field="*{password}">
+				<h3 th:errors="*{password}"></h3><br><br>
+
+				<label for="date">DOB:</label>
+				<input type="date" name="date" th:field="*{date}">
+				<h3 th:errors="*{date}"></h3><br><br>
+
+				<a href="signup"><button>SignUp</button></a>
+				<button type="reset">Cancel</button>
+			</fieldset>
+		</form>
+	</div>
 	<a href="/"><button>Back</button></a>
 </body>
 

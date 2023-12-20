@@ -2,6 +2,7 @@ package com.jsp.ecommerce.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
@@ -42,6 +43,7 @@ public class Customerdto {
 
 	@Past(message = "*Enter Proper Date")
 	@NotNull(message = "Select One Date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 
 	@NotEmpty(message = "*This is Mandatory")
