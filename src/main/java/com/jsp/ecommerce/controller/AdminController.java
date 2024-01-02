@@ -35,8 +35,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/add-product")
-	public String addProduct(Productdto productdto, @RequestParam MultipartFile pic, HttpSession session, ModelMap map)
-			throws IOException {
+	public String addProduct(Productdto productdto, @RequestParam MultipartFile pic, HttpSession session, ModelMap map) throws IOException {
 		if (session.getAttribute("admin") != null) {
 			return adminService.addProduct(productdto, pic, map);
 		} else {

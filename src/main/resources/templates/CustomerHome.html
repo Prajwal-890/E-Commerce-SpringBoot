@@ -4,11 +4,61 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Insert title here</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f5f5f5;
+			margin: 20px;
+			color: #333;
+		}
+
+		h2 {
+			color: #4caf50;
+			/* Green color for success message */
+		}
+
+		h1 {
+			color: #333;
+		}
+
+		button {
+			background-color: #4caf50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			margin: 5px;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a button {
+			border: 1px solid #4caf50;
+			background-color: #fff;
+			color: #4caf50;
+		}
+
+		a button:hover {
+			background-color: #4caf50;
+			color: #fff;
+		}
+	</style>
 </head>
 
 <body>
 	<h2 th:text="${pass}"></h2>
+	<h3 th:text="${fail}"></h3>
 	<h1>Customer Home</h1>
+	<a href="/customer/fetch-products"><button>View Products</button></a>
+	<a href="/customer/fetch-cart"><button>View Cart</button></a>
+	<a href="/logout"><button>Logout</button></a>
 </body>
 
 </html>

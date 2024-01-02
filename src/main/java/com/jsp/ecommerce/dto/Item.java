@@ -1,7 +1,5 @@
 package com.jsp.ecommerce.dto;
 
-import java.util.List;
-
 import org.apache.commons.codec.binary.Base64;
 
 import jakarta.persistence.Column;
@@ -10,43 +8,22 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import lombok.Data;
 
 @Entity
-public class Productdto {
+public class Item {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String category;
 	private double price;
-	private int stock;
-	private boolean display;
+	private int quantity;
+
 	@Lob
 	@Column(columnDefinition = "MEDIUMBLOB")
 	private byte[] picture;
-	
-	public int getQuantity(List<Item> items)
-	{
-		int quantity=0;
-		if(items==null)
-			return quantity;
-		else {
-		for(Item item:items)
-		{
-			if(this.name.equals(item.getName()))
-				quantity=item.getQuantity();
-		}
-		return quantity;
-		}
-	}
-
-	public boolean isDisplay() {
-		return display;
-	}
-
-	public void setDisplay(boolean display) {
-		this.display = display;
-	}
 
 	public String generateBase64Image() {
 		return Base64.encodeBase64String(this.getPicture());
@@ -84,12 +61,12 @@ public class Productdto {
 		this.price = price;
 	}
 
-	public int getStock() {
-		return stock;
+	public int getQuantity() {
+		return quantity;
 	}
 
-	public void setStock(int stock) {
-		this.stock = stock;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public byte[] getPicture() {
